@@ -1,0 +1,31 @@
+/* Reading Progress: keep IDs and JS calculations unchanged */
+.progress-track { width: 100%; height: 11px; background: #e3eeeb;
+    border-radius: 10px; overflow: hidden; margin: 10px 0; }
+.progress-fill { height: 100%; background: #4a9a8b;
+    border-radius: 10px; transition: width .3s ease; }
+#progressDialog { width: min(590px,92vw); max-height: 86vh; box-sizing: border-box;
+    padding: 0; border: 0; border-radius: 20px; background: white;
+    color: var(--text); overflow-y: auto; box-shadow: 0 15px 45px #0004; }
+#progressDialog::backdrop { background: #102b3d99; }
+.progress-modal { padding: 30px; }
+.progress-modal h2 { color: var(--navy); font: bold 28px Georgia,serif; margin: 0 0 6px; }
+#progressBookTitle { color: var(--muted); font-size: 14px; margin: 0 0 23px; }
+#progressForm { display: block; margin: 0; }
+.progress-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.progress-fields label { display: flex; flex-direction: column; gap: 8px; font-weight: 700; font-size: 13px; }
+.progress-fields input { display: block; width: 100%; box-sizing: border-box; padding: 12px; }
+.progress-preview { background: #edf6f0; border-radius: 14px; padding: 20px; margin-top: 24px; }
+.progress-preview h3 { margin-top: 0; }
+#progressPercent { font-size: 30px; color: var(--deep-blue); margin: 12px 0; }
+#progressRemaining { color: var(--muted); margin-bottom: 0; }
+.progress-error { display: block; background: #fff0f0; color: #b91c1c !important;
+    border: 1px solid #dc2626; border-left: 5px solid #dc2626; border-radius: 8px;
+    padding: 14px; margin-top: 18px; font-size: 14px; font-weight: 700; line-height: 1.5; }
+.progress-error[hidden] { display: none !important; }
+.progress-modal-actions { display: flex; gap: 12px; margin-top: 24px; }
+.progress-modal-actions button { flex: 1; padding: 13px; }
+#cancelProgress { background: #e7eeeb; color: var(--navy); }
+@media (max-width: 500px) {
+    .progress-modal { padding: 20px; }
+    .progress-fields { grid-template-columns: 1fr; }
+}

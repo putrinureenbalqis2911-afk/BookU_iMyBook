@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iMyBook · Your Reading Companion</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/books.css">
+    <link rel="stylesheet" href="css/progress.css">
+    <link rel="stylesheet" href="css/monthly-goal.css">
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar" aria-label="Application sidebar">
+            <div class="brand">
+                <div class="brand-icon" aria-hidden="true">✦</div>
+                <div>
+                    <h1>iMyBook</h1>
+                    <p>READING COMPANION</p>
+                </div>
+            </div>
+
+            <p class="sidebar-label">YOUR LIBRARY</p>
+            <nav class="sidebar-nav" aria-label="Main navigation">
+                <button type="button" id="dashboardBtn" class="nav-button">
+                    <span class="nav-icon" aria-hidden="true">▦</span> Dashboard
+                </button>
+                <button type="button" id="discoverBtn" class="nav-button">
+                    <span class="nav-icon" aria-hidden="true">⌕</span> Discover Books
+                </button>
+                <button type="button" id="readingListBtn" class="nav-button">
+                    <span class="nav-icon" aria-hidden="true">▤</span> My Reading List
+                </button>
+            </nav>
+        </aside>
+
+        <div class="content-shell">
+            <div class="topbar">
+                <p id="pageBreadcrumb">HOME / DASHBOARD</p>
+                <span class="topbar-pill">✦ Your personal reading space</span>
+            </div>
+
+            <main class="main-content">
+                <!-- THIRD FUNCTIONAL VIEW: Dashboard summarises existing saved data. -->
+                <section id="dashboardPage" aria-labelledby="dashboardHeading" hidden>
+                    <div class="page-intro">
+                        <p class="page-kicker">WELCOME TO YOUR LIBRARY</p>
+                        <h2 id="dashboardHeading">A little progress, every page.</h2>
+                        <p>Welcome back to your reading world. Here's where your stories stand today.</p>
+                    </div>
+
+                    <!-- BANNER IMAGE SLOT: replace assets/banner.jpg with your own image. -->
+                    <section class="hero-banner" aria-label="Reading inspiration banner">
+                        <div class="hero-copy">
+                            <p class="hero-eyebrow">✦ FIND YOUR NEXT CHAPTER</p>
+                            <h2>There's always room<br>for one more story.</h2>
+                            <p>Browse new worlds, save the books you love and make every page count.</p>
+                            <button type="button" id="exploreBooksBtn" class="button-light">Explore books ↗</button>
+                        </div>
+                        <div class="hero-book-stack" aria-hidden="true">
+                            <div class="decor-book decor-book-one"><span>THE NEXT<br>CHAPTER</span></div>
+                            <div class="decor-book decor-book-two"><span>BEYOND<br>THE PAGE</span></div>
+                            <div class="decor-book decor-book-three"><span>SOFT<br>STORIES</span></div>
+                        </div>
+                    </section>
+
+                    <div class="stats-grid" aria-label="Reading statistics">
+                        <article class="stat-card">
+                            <span class="stat-icon mint" aria-hidden="true">▤</span>
+                            <strong id="dashboardSavedCount">0</strong>
+                            <p>Books saved</p>
+                        </article>
+                        <article class="stat-card">
+                            <span class="stat-icon peach" aria-hidden="true">◷</span>
+                            <strong id="dashboardReadingCount">0</strong>
+                            <p>Currently reading</p>
+                        </article>
+                        <article class="stat-card">
+                            <span class="stat-icon lilac" aria-hidden="true">✦</span>
+                            <strong id="dashboardCompletedCount">0</strong>
+                            <p>Books completed</p>
+                        </article>
+                        <article class="stat-card">
+                            <span class="stat-icon powder" aria-hidden="true">▥</span>
+                            <strong id="dashboardGoalPercent">—</strong>
+                            <p>Monthly goal progress</p>
+                        </article>
+                    </div>
+
+                    <div class="section-heading-row">
+                        <div>
+                            <h2>Your reading corner</h2>
+                            <p>Small steps make lovely stories.</p>
+                        </div>
+                        <button type="button" id="viewReadingListBtn" class="text-button">View reading list →</button>
+                    </div>
+
+                    <div class="dashboard-bottom">
+                        <section class="feature-card" aria-labelledby="continueHeading">
+                            <div class="feature-card-heading">
+                                <h3 id="continueHeading">Continue reading</h3>
+                                <span class="tiny-tag">YOUR CURRENT BOOK</span>
+                            </div>
+                            <div id="dashboardContinue" class="continue-content">
+                                <p>Save a book and update its reading progress to see it here.</p>
+                            </div>
+                        </section>
+                        <section class="feature-card" aria-labelledby="goalOverviewHeading">
+                            <div class="feature-card-heading">
+                                <h3 id="goalOverviewHeading">Your monthly reading goal</h3>
+                                <span class="tiny-tag peach-tag" id="dashboardGoalMonth">THIS MONTH</span>
+                            </div>
+                            <strong class="goal-figure" id="dashboardGoalBigPercent">—</strong>
+                            <p id="dashboardGoalDetails" class="feature-muted">Set a monthly goal to see your progress.</p>
+                            <div class="goal-mini-track"><div id="dashboardGoalFill"></div></div>
+                            <p id="dashboardGoalRemaining" class="feature-muted">Your reading journey starts here.</p>
+                            <button type="button" id="viewGoalsBtn" class="text-button">View reading goal →</button>
+                        </section>
+                    </div>
+                </section>
+
+                <section id="discoverPage" aria-labelledby="discoverHeading" hidden>
+                    <div class="page-intro">
+                        <p class="page-kicker">DISCOVER / BOOKS</p>
+                        <h2 id="discoverHeading">Find your next favorite book.</h2>
+                        <p>Search book titles or authors, or discover a story based on what you love.</p>
+                    </div>
+
+                    <div class="panel search-panel">
+                        <form id="searchForm">
+                            <label for="searchInput">Search books</label>
+                            <div class="search-fields">
+                                <input type="text" id="searchInput" placeholder="Search by title, author or keyword..." required>
+                                <button type="submit">⌕ &nbsp;Search Books</button>
+                            </div>
+                        </form>
+                    </div>
+                    <p id="message" role="status" class="feedback-message"></p>
+                    <div id="bookResults" class="book-grid"></div>
+
+                    <section id="recommendationSection" class="discover-recommendations" aria-labelledby="recommendHeading">
+                        <div class="section-heading-row">
+                            <div>
+                                <h2 id="recommendHeading">Made for your mood</h2>
+                                <p>Choose a genre and your preferred book length.</p>
+                            </div>
+                        </div>
+                        <div class="panel recommendation-panel">
+                            <div class="genre-controls">
+                                <div class="field-group">
+                                    <label for="genreSelect">Your genre</label>
+                                    <select id="genreSelect">
+                                        <option value="fantasy">Fantasy</option>
+                                        <option value="romance">Romance</option>
+                                        <option value="mystery">Mystery</option>
+                                        <option value="horror">Horror</option>
+                                        <option value="thriller">Thriller</option>
+                                        <option value="science fiction">Science Fiction</option>
+                                    </select>
+                                </div>
+                                <div class="field-group">
+                                    <label for="bookLengthSelect">Book length</label>
+                                    <select id="bookLengthSelect">
+                                        <option value="any">Any Length</option>
+                                        <option value="short">Short (200 pages or fewer)</option>
+                                        <option value="medium">Medium (201–400 pages)</option>
+                                        <option value="long">Long (more than 400 pages)</option>
+                                    </select>
+                                </div>
+                                <button type="button" id="recommendBtn">Recommend Books ↗</button>
+                            </div>
+                        </div>
+                        <p id="recommendMessage" role="status" class="feedback-message"></p>
+                        <div id="recommendResults" class="book-grid"></div>
+                    </section>
+                </section>
+
+                <section id="readingListPage" aria-labelledby="readingListHeading" hidden>
+                    <div class="page-intro">
+                        <p class="page-kicker">YOUR LIBRARY / SAVED BOOKS</p>
+                        <h2 id="readingListHeading">My Reading List</h2>
+                        <p>Keep your favorite books close and celebrate every chapter you finish.</p>
+                    </div>
+                    <p id="readingMessage" role="status" class="feedback-message"></p>
+                    <div id="savedBooks" class="book-grid saved-book-grid"></div>
+
+                    <!-- Existing user-input calculation, all original IDs are retained. -->
+                    <section id="monthlyGoalSection" aria-labelledby="monthlyGoalHeading">
+                        <div class="section-heading-row">
+                            <div>
+                                <p class="page-kicker">GOALS / STAY INSPIRED</p>
+                                <h2 id="monthlyGoalHeading">Monthly Reading Goal Tracker</h2>
+                                <p>Set a monthly target and see how far you've come.</p>
+                            </div>
+                        </div>
+                        <form id="monthlyGoalForm" novalidate>
+                            <label for="monthlyGoalMonth">Select Month
+                                <input type="month" id="monthlyGoalMonth" required>
+                            </label>
+                            <label for="monthlyGoalTarget">Monthly Goal (Books)
+                                <input type="number" id="monthlyGoalTarget" min="1" step="1" placeholder="e.g. 5" required>
+                            </label>
+                            <label for="monthlyGoalCompleted">Books Completed
+                                <input type="number" id="monthlyGoalCompleted" min="0" step="1" value="0" required>
+                            </label>
+                            <button type="submit">Save Monthly Goal</button>
+                        </form>
+                        <p id="monthlyGoalError" role="alert" hidden></p>
+                        <div id="monthlyGoalResult" hidden>
+                            <h3>Goal Achievement</h3>
+                            <h2 id="monthlyGoalPercentage">0.0%</h2>
+                            <div class="monthly-goal-track"><div id="monthlyGoalFill"></div></div>
+                            <p id="monthlyGoalRemaining"></p>
+                            <p id="monthlyGoalStatus"></p>
+                        </div>
+                        <p id="monthlyGoalMessage" role="status"></p>
+                    </section>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Existing dialogs and IDs retained. -->
+    <dialog id="bookDialog" aria-labelledby="dialogBookTitle">
+        <h2 id="dialogBookTitle"></h2>
+        <div id="dialogBookContent"></div>
+        <button type="button" id="closeBookDialog">Close</button>
+    </dialog>
+
+    <dialog id="progressDialog" aria-labelledby="progressDialogHeading">
+        <div class="progress-modal">
+            <h2 id="progressDialogHeading">Update Reading Progress</h2>
+            <p id="progressBookTitle"></p>
+            <form id="progressForm" novalidate>
+                <div class="progress-fields">
+                    <label for="progressTotal">Total Pages
+                        <input type="number" id="progressTotal" min="1" step="1" required>
+                    </label>
+                    <label for="progressRead">Pages Read
+                        <input type="number" id="progressRead" min="0" step="1" required>
+                    </label>
+                </div>
+                <div class="progress-preview">
+                    <h3>Reading Progress</h3>
+                    <h2 id="progressPercent">0.0%</h2>
+                    <div class="progress-track"><div class="progress-fill" id="progressPreviewFill"></div></div>
+                    <p id="progressRemaining"></p>
+                </div>
+                <p id="progressError" class="progress-error" role="alert" hidden></p>
+                <div class="progress-modal-actions">
+                    <button type="button" id="cancelProgress">Cancel</button>
+                    <button type="submit">Save Progress</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+
+    <!-- Keep this order; existing modules use each other's functions. -->
+    <script src="js/reading-list.js"></script>
+    <script src="js/book-details.js"></script>
+    <script src="js/progress.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/recommendations.js"></script>
+    <script src="js/monthly-goal.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="renderer.js"></script>
+</body>
+</html>

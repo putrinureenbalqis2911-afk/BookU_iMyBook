@@ -1,0 +1,19 @@
+/* Monthly Goal Tracker uses existing user-input data and JS. */
+#monthlyGoalSection { margin-top: 38px; padding: 26px; background: white;
+    border: 1px solid var(--border); border-radius: 17px; box-shadow: var(--shadow); }
+#monthlyGoalSection .section-heading-row { margin: 0 0 15px; }
+#monthlyGoalForm { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin-top: 20px; }
+#monthlyGoalForm label { display: flex; flex-direction: column; gap: 8px; font-weight: 700; color: var(--navy); font-size: 13px; }
+#monthlyGoalForm input { width: 100%; box-sizing: border-box; padding: 12px; }
+#monthlyGoalForm button { grid-column: 1/-1; padding: 13px; }
+#monthlyGoalResult { margin-top: 22px; padding: 23px; background: #edf6f0; border-radius: 13px; }
+#monthlyGoalResult h3 { margin: 0 0 5px; }
+#monthlyGoalPercentage { color: var(--deep-blue); font-size: 31px; margin: 9px 0; }
+.monthly-goal-track { width: 100%; height: 13px; background: #dbeae5; border-radius: 10px; overflow: hidden; }
+#monthlyGoalFill { width: 0%; height: 100%; background: #499789; transition: width .3s ease; }
+#monthlyGoalStatus { color: var(--navy); font-weight: 700; }
+#monthlyGoalError { padding: 12px; margin-top: 15px; color: #b91c1c; background: #fff0f0;
+    border-left: 4px solid #dc2626; border-radius: 6px; font-weight: 700; }
+#monthlyGoalError[hidden],#monthlyGoalResult[hidden] { display: none !important; }
+#monthlyGoalMessage { color: #23734c; font-weight: 700; }
+@media(max-width: 800px) { #monthlyGoalForm { grid-template-columns: 1fr; } }

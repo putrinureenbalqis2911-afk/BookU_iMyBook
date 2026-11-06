@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iMyBook</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h2>📚 iMyBook</h2>
+        <p>Your personal reading companion.</p>
+    </header>
+
+    <nav>
+        <button type="button" id="discoverBtn">Discover Books</button>
+        <button type="button" id="readingListBtn">My Reading List</button>
+    </nav>
+
+    <main>
+        <section id="discoverPage">
+            <h2>Discover Your Next Read</h2>
+            <p>Search for books by title or author.</p>
+
+            <form id="searchForm">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Enter a book title or author..."
+                    required
+                >
+                <button type="submit">Search</button>
+            </form>
+
+            <p id="message" role="status"></p>
+            <div id="bookResults" class="book-grid"></div>
+
+            <section id="recommendationSection">
+                <h2>Find Books by Genre</h2>
+                <p>Discover books based on your favourite genre.</p>
+
+                <div class="genre-controls">
+                    <label for="genreSelect">Choose your favourite genre:</label>
+
+                    <select id="genreSelect">
+                        <option value="fantasy">Fantasy</option>
+                        <option value="romance">Romance</option>
+                        <option value="mystery">Mystery</option>
+                        <option value="horror">Horror</option>
+                        <option value="thriller">Thriller</option>
+                        <option value="science fiction">Science Fiction</option>
+                    </select>
+
+                    <button type="button" id="recommendBtn">
+                        Recommend Books
+                    </button>
+                </div>
+
+                <p id="recommendMessage" role="status"></p>
+                <div id="recommendResults" class="book-grid"></div>
+            </section>
+        </section>
+
+        <section id="readingListPage" hidden>
+            <h2>My Reading List</h2>
+            <p>Track your reading progress and manage your books.</p>
+            <p id="readingMessage" role="status"></p>
+            <div id="savedBooks" class="book-grid"></div>
+        </section>
+    </main>
+
+
+    <dialog id="bookDialog">
+        <h2 id="dialogBookTitle"></h2>
+        <div id="dialogBookContent"></div>
+        <button type="button" id="closeBookDialog">Close</button>
+    </dialog>
+
+
+    <!-- UPDATE READING PROGRESS POPUP -->
+    <dialog id="progressDialog">
+
+        <div class="progress-modal">
+
+            <h2>Update Reading Progress</h2>
+            <p id="progressBookTitle"></p>
+
+            <form id="progressForm" novalidate>
+
+                <div class="progress-fields">
+
+                    <label for="progressTotal">
+                        Total Pages
+                        <input type="number"
+                            id="progressTotal"
+                            min="1"
+                            step="1"
+                            required>
+                    </label>
+
+                    <label for="progressRead">
+                        Pages Read
+                        <input type="number"
+                            id="progressRead"
+                            min="0"
+                            step="1"
+                            required>
+                    </label>
+
+                </div>
+
+                <!-- Live calculation preview -->
+                <div class="progress-preview">
+
+                    <h3>Reading Progress</h3>
+                    <h2 id="progressPercent">0.0%</h2>
+
+                    <div class="progress-track">
+                        <div class="progress-fill"
+                            id="progressPreviewFill">
+                        </div>
+                    </div>
+
+                    <p id="progressRemaining"></p>
+
+                </div>
+
+                <!-- Validation message -->
+                <p id="progressError"
+                class="progress-error"
+                role="alert"
+                hidden>
+                </p>
+
+                <div class="progress-modal-actions">
+
+                    <button type="button" id="cancelProgress">
+                        Cancel
+                    </button>
+
+                    <button type="submit">
+                        Save Progress
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </dialog>
+
+
+    <script src="renderer.js"></script>
+</body>
+</html>
