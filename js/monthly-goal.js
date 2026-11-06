@@ -67,34 +67,23 @@ function displayMonthlyGoal(goal, completed) {
 
     const remaining = Math.max(0, goal - completed);
 
-    document.getElementById('monthlyGoalPercentage')
-        .textContent = percentage.toFixed(1) + '%';
+    document.getElementById('monthlyGoalPercentage').textContent = percentage.toFixed(1) + '%';
 
-    document.getElementById('monthlyGoalFill')
-        .style.width = Math.min(100, percentage) + '%';
+    document.getElementById('monthlyGoalFill').style.width = Math.min(100, percentage) + '%';
 
-    document.getElementById('monthlyGoalRemaining')
-        .textContent = remaining + ' books remaining';
+    document.getElementById('monthlyGoalRemaining').textContent = remaining + ' books remaining';
 
-    const status =
-        document.getElementById('monthlyGoalStatus');
+    const status = document.getElementById('monthlyGoalStatus');
 
     // Student-written control statements
     if (completed > goal) {
-
-        status.textContent =
-            'Amazing! You exceeded your goal by ' +
-            (completed - goal) + ' books!';
+        status.textContent = 'Amazing! You exceeded your goal by ' + (completed - goal) + ' books!';
 
     } else if (completed === goal) {
-
-        status.textContent =
-            'Congratulations! Monthly goal achieved!';
+        status.textContent = 'Congratulations! Monthly goal achieved!';
 
     } else {
-
-        status.textContent =
-            'Keep reading! You can reach your goal!';
+        status.textContent = 'Keep reading! You can reach your goal!';
     }
 
     monthlyGoalResult.hidden = false;

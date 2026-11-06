@@ -77,7 +77,6 @@ searchForm.addEventListener('submit', async (event) => {
     } catch (error) {
         console.error('Book search error:', error);
 
-        message.textContent =
-            'Unable to retrieve books. Please check your connection and try again.';
+        message.textContent = 'Unable to retrieve books. Please check your connection and try again.';
     }
 });

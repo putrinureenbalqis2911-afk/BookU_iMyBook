@@ -80,8 +80,7 @@ function saveBookList(book, feedbackElement) {
         if (list.some(saved =>
             saved.sourceKey === sourceKey
         )) {
-            feedbackElement.textContent =
-                'This book is already in My Reading List.';
+            feedbackElement.textContent = 'This book is already in My Reading List.';
             return false;
         }
 

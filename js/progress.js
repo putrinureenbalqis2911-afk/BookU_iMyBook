@@ -39,14 +39,10 @@ function getProgressInput() {
     const total = Number(totalText);
     const read = Number(readText);
 
-    const valid =
-        totalText !== '' &&
-        readText !== '' &&
-        Number.isInteger(total) &&
-        total > 0 &&
-        Number.isInteger(read) &&
-        read >= 0 &&
-        read <= total;
+    const valid = totalText !== '' && readText !== '' &&
+        Number.isInteger(total) && total > 0 &&
+        Number.isInteger(read) && read >= 0 && 
+        read <= total; 
 
     return { total, read, valid };
 }
@@ -134,12 +130,10 @@ function showProgressError(text) {
 
 // UPDATE PREVIEW WHEN USER TYPES
 [progressTotal, progressRead].forEach(function (input) {
-
+    
     input.addEventListener('input', function () {
-
         progressError.hidden = true;
         updateProgressPreview();
-
     });
 
 });
