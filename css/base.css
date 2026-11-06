@@ -114,7 +114,7 @@ h1, .page-intro h2, .hero-banner h2, .section-heading-row h2 { font-family: Geor
     display: flex;
     align-items: center;
     background-color: #315c6c;
-    background-image: linear-gradient(90deg, #18394df7 0%, #1f4e5eeb 30%, #235b6559 100%), url('../assets/banner2.jpe');
+    background-image: linear-gradient(90deg, #18394df7 0%, #1f4e5eeb 0%, #235b6559 100%), url('../assets/banner2.jpe');
     background-position: center;
     background-size: cover;
 }

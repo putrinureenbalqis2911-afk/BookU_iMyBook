@@ -10,6 +10,29 @@
     min-width: 0;
     transition: transform .18s ease, box-shadow .18s ease;
 }
+
+/* COLOURED READING STATUS */
+
+.reading-status {
+    display: inline-block;
+    width: fit-content;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+.status-to-read {
+    background-color: #F5E9CA;
+    color: #8D651B;
+}
+.status-reading {
+    background-color: #DCEBF9;
+    color: #235D94;
+}
+.status-completed {
+    background-color: #DAF0E4;
+    color: #247547;
+}
 .book-card:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(30,57,65,.09); }
 .book-card img {
     display: block;

@@ -86,6 +86,7 @@ function saveBookList(book, feedbackElement) {
         }
 
         // Create book object
+
         const newBook = {
             id: sourceKey,
             sourceKey: sourceKey,
@@ -189,8 +190,18 @@ function displaySavedBooks() {
             ? `Pages Read: ${pagesRead} / ${total}`
             : 'Total Pages: Not available';
 
+
         const status = document.createElement('p');
-        status.textContent = 'Status: ' + book.status;
+        status.className = 'reading-status';
+        status.textContent = book.status;
+
+        if (book.status === 'To Read') {
+            status.classList.add('status-to-read');
+        } else if (book.status === 'Reading') {
+            status.classList.add('status-reading');
+        } else if (book.status === 'Completed') {
+            status.classList.add('status-completed');
+        }
 
         card.append(title, author, pages, status);
 
